@@ -8,15 +8,7 @@
 #       dir4
 mkdir task
 cd "task"
-for i in {1..3}; do
-    mkdir "dir$i"
-    if ((i == 3)); then
-        cd dir$i
-        n=$((i+1))
-        mkdir "dir$n"
-        cd ..
-    fi
-done
+mkdir dir1 dir2 dir3 dir3/dir4
 cd ..
 
 # изменяем текущую директорию на task
@@ -48,8 +40,7 @@ touch dir1/summary.txt
 find . -name "*.txt" > dir1/summary.txt
 
 # дописываем в task/dir1/summary.txt содержимое task/dir2/list.txt
-l=$(cat dir2/list.txt)
-echo $l >> dir1/summary.txt
+cat dir2/list.txt >> dir1/summary.txt
 
 # определяем переменную окружения NAME со значением "Всем студентам"
 NAME="Всем студентам"
