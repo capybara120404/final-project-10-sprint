@@ -6,6 +6,18 @@
 #   dir2
 #   dir3
 #       dir4
+mkdir task
+cd "task"
+for i in {1..3}; do
+    mkdir "dir$i"
+    if ((i == 3)); then
+        cd dir$i
+        n=$((i+1))
+        mkdir "dir$n"
+        cd ..
+    fi
+done
+cd ..
 
 # изменяем текущую директорию на task
 
